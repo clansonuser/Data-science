@@ -1,0 +1,63 @@
+---
+title: "Data-science : Tarification auto"
+author: "KONE Clano Pascal"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Sommaire
+
+# I. Introduction
+
+## 1. Rappels du contexte
+
+En tant que représentant d'une compagnie d'assurance automobile, nous utilisons des données provenant de 30 000 contrats passés pour développer deux modèles prédictifs.
+
+Le premier modèle évalue les risques de sinistres pour nos 15 000 nouveaux clients, tandis que le second estime les coûts des sinistres potentiels.
+
+Ces modèles reposent sur des méthodes d'apprentissage statistique pour une tarification précise et équitable.
+
+## 2. Approche théorique
+
+En termes mathématiques, la tarification dans notre contexte consiste à estimer de manière anticipée, pour chaque assuré, la probable valeur moyenne des indemnisations associées aux sinistres qu'il pourrait éventuellement déclarer.
+
+Cette estimation, symbolisée par $E[Y]$, où $Y$ représente la valeur des indemnisations dont la distribution spécifique demeure inconnue, peut être réexprimée :
+
+$$
+Z = \mathbb{I}(Y > 0), \quad \mathbb{E}(Y) = \mathbb{E}(Z = 1 \, | \, X = x) \times \mathbb{E}(Y \, | \, X = x, Z = 1)
+$$
+
+En notant $X$ les informations sur l'assuré et $Z$ la variable binaire pour signifier la présence ou non de sinistres déclarés.
+
+On pourrait choisir de distinguer entre les types de sinistres. Par exemple :
+
+$$ Z_a = \mathbb{I}(Y_{attritionnels} > 0), \quad Z_g = \mathbb{I}(Y_{graves} > 0) $$
+
+Ensuite, vous pouvez estimer les espérances conditionnelles pour les sinistres attritionnels et graves de la manière suivante :
+
+$$ \mathbb{E}(Y) = \mathbb{E}(Z_a = 1 \, | \, X = x) \times \mathbb{E}(Y \, | \, X = x, Z_a = 1) + \mathbb{E}(Z_g = 1 \, | \, X = x) \times \mathbb{E}(Y \, | \, X = x, Z_g = 1) $$
+
+## 3. Language de programmation
+
+Pour établir nos primes d'assurance automobile, nous prévoyons d'utiliser une approche polyvalente en exploitant différents modèles de data science, tels que :
+
+-   Modèles linéaires généralisés
+-   Forêts aléatoires
+-   Réseaux de neurones
+-   Machines à boosting
+
+Ces modèles seront déployés pour évaluer avec précision et rigueur les risques associés à chaque assuré. En combinant ces techniques, nous visons à calculer des primes adaptées, en tenant compte de la complexité des relations entre les caractéristiques des assurés et le coût des sinistres, assurant ainsi une tarification précise et équilibrée.
+
+Nous utiliserons RStudio pour développer et déployer nos modèles de data science. Cet environnement nous offre les outils nécessaires pour charger nos données, construire, ajuster et évaluer nos *Modèles linéaires généralisés*, *Forêts aléatoires*, *Réseaux de neurones* et *Machines à boosting*, assurant ainsi une mise en place efficace et une tarification précise des primes d'assurance automobile.
+
+# II. Travail sur les données
+
+## 1. Visualisation des données
+
+## 2. Le nettoyage des données
+
+## 3. Description des données
