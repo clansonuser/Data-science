@@ -35,3 +35,4 @@ for (i in c(8,9,13,14)){
 str(data_train)
 summary(data_train)
 
+yhdregzbuikjfhcbzsf
